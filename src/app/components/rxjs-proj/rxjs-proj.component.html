@@ -1,0 +1,48 @@
+<div>
+  <h2>RxJS Project Component</h2>
+  <br>
+  <p><b>Data appears after 3 seconds. Please wait. Thank you!!!</b></p>
+  <p>Timer: {{val}} seconds</p>
+  <p>Number of Data: {{noOfData}}</p>
+  <p>{{completionStatus}}</p>
+
+  <!--  <div class="container">-->
+  <!--    <div class="row" style="margin-top: 30px">-->
+  <!--      <div class="col-md-3 col-xs-6" *ngFor="let student of students">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-body">-->
+  <!--            <p class="card-title">ID: {{ student.id }}</p>-->
+  <!--            <p class="card-title">Name: {{ student.name }}</p>-->
+  <!--            <p class="card-subtitle">Enrollment Number: {{ student.enrollmentNumber }}</p>-->
+  <!--            <p class="card-text">College: {{ student.college }}</p>-->
+  <!--            <p class="card-text">University: {{ student.university }}</p>-->
+  <!--            <button class="mat-raised-button" style="background-color: aqua" href="/users" [routerLink]="['/users']">Back to 'Users'</button>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div *ngIf="_students != null, else noStudents">
+    <table class="table table-bordered">
+      <tr class="bg-primary">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <tr *ngFor="let student of _students">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.username}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.phone}}</td>
+      </tr>
+    </table>
+    <button class="mat-raised-button" style="background-color: aqua" href="/users" [routerLink]="['/users']">Back to 'Users'</button>
+  </div>
+  <ng-template #noStudents>
+    <p class="alert alert-danger text-center">{{errorMessage}}</p>
+  </ng-template>
+</div>
