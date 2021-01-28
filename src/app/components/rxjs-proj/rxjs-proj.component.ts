@@ -60,7 +60,7 @@ export class RxjsProjComponent implements OnInit {
       } else {
         this.noOfData = data.length;
       }
-      console.log('_student: ', data);
+      console.log('_student: ', this._students);
     }, (err: { message: any; }) => {
       console.log('error: ', err);
       this.errorMessage = err.message;
