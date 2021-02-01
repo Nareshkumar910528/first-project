@@ -13,7 +13,7 @@ export class IndividualDataService {
 
   constructor(private http: HttpClient) { }
 
-  public getStudents(): any {
+  public getUserInfo(): any {
     return this.http.get('http://jsonplaceholder.typicode.com/users');
     //studentsObservable will return an Observable
     // const studentsObservable = new Observable(

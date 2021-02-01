@@ -4,6 +4,7 @@ import { map, catchError, tap, } from 'rxjs/operators';
 import { IndividualDataService } from 'src/app/services/individual-data.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {error} from '@angular/compiler/src/util';
+import {isNewline} from 'codelyzer/angular/styles/cssLexer';
 
 const fruitsObservable = of('apple', 'orange', 'grape');
 // a constant observer object variable
@@ -26,7 +27,9 @@ const httpOptions = {
   styleUrls: ['./rxjs-proj.component.css']
 })
 export class RxjsProjComponent implements OnInit {
-  _students:any;
+  userInfo:any;
+  employeeInfo: any;
+  mappedData: any;
   val: number;
   timerCompleteIndication: string = 'Execution is completed.';
   data: any[] = [];
@@ -46,28 +49,38 @@ export class RxjsProjComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getData();
+    this.getUserData();
   }
 
-  getData() {
-    this.individualDataService.getStudents().pipe(catchError(err => {
+  getUserData() {
+    this.individualDataService.getUserInfo().pipe(catchError(err => {
       console.log('Handling error locally and rethrowing it...', err);
       return throwError(err);
-    })).subscribe((data: string | any[]) => {
-      this._students = data;
-      if(data.length == 0) {
+    })).subscribe((respond: string | any[]) => { //success
+      this.userInfo = respond;
+      if(respond.length == 0) {
         this.noOfData = 'No Data';
       } else {
-        this.noOfData = data.length;
+        this.noOfData = respond.length;
       }
-      console.log('_student: ', this._students);
-    }, (err: { message: any; }) => {
+      console.log('_student: ', this.userInfo);
+    }, (err: { message: any; }) => { //error
       console.log('error: ', err);
       this.errorMessage = err.message;
       this.noOfData = 'No incoming data';
-    }, () => {
+    }, () => { //complete
       this.completionStatus = 'HTTP request completed.';
       console.log('HTTP request completed.');
+    })
+  }
+
+  getStreetListings() {
+    this.individualDataService.getUserInfo().subscribe((respond) => {
+      this.userInfo = respond;
+      this.mappedData = this.userInfo.map(data => data.address.street + ', ' + data.address.geo.lat + ', ' + data.address.geo.lng);
+      this.mappedData.push('Penang' + ', ' + '5.4141' + ', ' + '100.3288');
+      this.mappedData.unshift('Kuala Lumpur' + ', ' + '3.1390' + ', ' + '101.6869');
+      console.log('Street: ', this.mappedData);
     })
   }
 

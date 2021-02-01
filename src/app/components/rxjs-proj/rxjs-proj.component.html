@@ -23,26 +23,38 @@
   <!--    </div>-->
   <!--  </div>-->
 
-  <div *ngIf="_students != null, else noStudents">
+  <div *ngIf="userInfo != null, else noUsers">
     <table class="table table-bordered">
       <tr class="bg-primary">
         <th>ID</th>
         <th>Name</th>
         <th>Username</th>
         <th>Email</th>
+        <th>Address (City)</th>
+        <th>Address (Zipcode)</th>
         <th>Phone</th>
+        <th>Website</th>
+        <th>Company Name</th>
       </tr>
-      <tr *ngFor="let student of _students">
-        <td>{{student.id}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.username}}</td>
-        <td>{{student.email}}</td>
-        <td>{{student.phone}}</td>
+      <tr *ngFor="let users of userInfo">
+        <td>{{users.id}}</td>
+        <td>{{users.name}}</td>
+        <td>{{users.username}}</td>
+        <td>{{users["email"]}}</td>
+        <td>{{users.address.city}}</td>
+        <td>{{users.address["zipcode"]}}</td>
+        <td>{{users.phone}}</td>
+        <td>{{users["website"]}}</td>
+        <td>{{users["company"].name}}</td>
       </tr>
     </table>
-    <button class="mat-raised-button" style="background-color: aqua" href="/users" [routerLink]="['/users']">Back to 'Users'</button>
   </div>
-  <ng-template #noStudents>
+  <div>
+    <button class="mat-raised-button" style="background-color:aqua" (click)="getStreetListings()">List of Streets</button>
+    <br><br>
+    Street Names: {{this.mappedData | json}}
+  </div>
+  <ng-template #noUsers>
     <p class="alert alert-danger text-center">{{errorMessage}}</p>
   </ng-template>
 </div>
