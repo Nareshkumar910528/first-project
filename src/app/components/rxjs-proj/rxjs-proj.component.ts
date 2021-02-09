@@ -96,16 +96,14 @@ export class RxjsProjComponent implements OnInit {
       console.log('shiftedMappedData: ', this.mappedData);
       this.slicedMappedData = this.mappedData.slice(1,8); //selects the elements starting at the given start argument and the end at argument, but it does not include the given end argument
       console.log('slicedMappedData: ', this.slicedMappedData);
-      this.mappedData.splice(2,0,'Penang'); //add and remove elements from an array
+      this.mappedData.splice(4,2,'Penang','India'); //add and remove elements from an array
       console.log('splicedMappedData: ', this.mappedData);
-      console.log('indexedOfMappedData: ', this.mappedData.indexOf("Norberto Crossing")); //searches an array for an element value and returns its position
+      console.log('indexedOfMappedData: ', this.mappedData.indexOf("Ellsworth Summit")); //searches an array for an element value and returns its position
       this.joinedStingOfMappedData = this.mappedData.join(' == '); //convert an array to a string
       console.log('joinedStingOfMappedData: ', this.joinedStingOfMappedData); //specify the separator
       console.log('toStringOfMappedData: ', this.mappedData.toString()); //convert an array to a string
-      let newArrayKL = ['Kuala Lumpur'];
-      let newArraySelangor = ['Selangor'];
-      let newArraySingapore = ['Singapore'];
-      this.concatNewArrayWithMappedData = this.mappedData.concat(newArrayKL, newArraySelangor, newArraySingapore); //merge arrays together. It returns a new array by concatenating existing arrays
+      let newArray = ['Kuala Lumpur', 'Selangor', 'Singapore'];
+      this.concatNewArrayWithMappedData = this.mappedData.concat(newArray); //merge arrays together. It returns a new array by concatenating existing arrays
       console.log('concatNewArrayWithMappedData: ', this.concatNewArrayWithMappedData);
       console.log('includesChecking: ', this.concatNewArrayWithMappedData.includes('Pahang')); //checks if an element is available within an array. Will return true or false
       if (this.concatNewArrayWithMappedData.includes('Penang')) { //checks if an element is available within an array
