@@ -1,0 +1,69 @@
+<div>
+  <h4>Angular Forms</h4>
+</div>
+
+<div [style.backgroundImage]="backgroundImage">
+  <div class="p-10" fxFlex.gt-sm="35" fxFlex.gt-xs="50" fxFlex="100" style="margin: auto">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="form">
+          <div class="text-center">
+            <img alt="homepage" [src]="logoLight" style="width:10%;">
+            <h5 class="m-t-0">Welcome to Angular Form</h5>
+          </div>
+          <div fxLayout="row wrap">
+            <div class="p-10" fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="First name" [formControl]="form.controls['firstName']">
+              </mat-form-field>
+              <mat-hint *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="text-danger font-14">You must include a first name.</mat-hint>
+            </div>
+            <br>
+            <div class="p-10" fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Last name" [formControl]="form.controls['lastName']">
+              </mat-form-field>
+              <mat-hint *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="text-danger font-14">You must include a last name.</mat-hint>
+            </div>
+            <br>
+            <div class="p-10" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Email address (mandatory)" [formControl]="form.controls['email']">
+              </mat-form-field>
+              <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">You must include an email address.</small>
+              <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">You must include a valid email address.</small>
+            </div>
+            <br>
+            <div class="p-10" fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Password" [type]="hide ? 'password': 'text'" [formControl]="form.controls['password']">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+              <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">You must include an password.</small>
+              <small *ngIf="form.controls['password'].hasError('minlength') && form.controls['password'].touched" class="text-danger support-text">
+                <i class="material-icons">{{ form.controls['password'].hasError('minlength') && form.controls['password'].touched ? 'cancel' : 'check_circle' }}</i>
+                Must be at least 8 characters.
+              </small>
+              <small *ngIf="form.controls['password'].hasError('hasNumber') && form.controls['password'].touched" class="text-danger support-text">
+                <i class="material-icons">{{ form.controls['password'].hasError('hasNumber') && form.controls['password'].touched ? 'cancel' : 'check_circle' }}</i>
+                Must contain at least 1 number.
+              </small>
+              <small *ngIf="form.controls['password'].hasError('hasUpperCase') && form.controls['password'].touched" class="text-danger support-text">
+                <i class="material-icons">{{ form.controls['password'].hasError('hasUpperCase') && form.controls['password'].touched ? 'cancel' : 'check_circle' }}</i>
+                Must contain at least 1 uppercase.
+              </small>
+              <small *ngIf="form.controls['password'].hasError('hasLowerCase') && form.controls['password'].touched" class="text-danger support-text">
+                <i class="material-icons">{{ form.controls['password'].hasError('hasLowerCase') && form.controls['password'].touched ? 'cancel' : 'check_circle' }}</i>
+                Must contain at least 1 lowercase.
+              </small>
+              <small *ngIf="form.controls['password'].hasError('hasSpecialCharacters') && form.controls['password'].touched" class="text-danger support-text">
+                <i class="material-icons">{{ form.controls['password'].hasError('hasSpecialCharacters') && form.controls['password'].touched ? 'cancel' : 'check_circle' }}</i>
+                Must contain at least 1 Special Character.
+              </small>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
