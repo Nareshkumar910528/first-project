@@ -128,6 +128,11 @@ export class RxjsProjComponent implements OnInit {
       console.log('filteredMappedData: ', filteredMappedData);
       const sortedMappedData = filteredMappedData.sort((a,b) => a.localeCompare(b)); //sorts the items of an array
       console.log('sortedMappedData: ', sortedMappedData);
+      const newArray2: Array<any> = ["Malaysia", "Sri Lanka", "United States of America"];
+      const spreadArray = [...newArray2, sortedMappedData];
+      console.log('spreadArray: ', spreadArray);
+      const newConcatArray = sortedMappedData.concat(newArray2).sort((a,b) => a.localeCompare(b));
+      console.log('newConcatArray: ', newConcatArray);
     })
   }
 
