@@ -52,7 +52,7 @@
   <div>
     <button class="mat-raised-button" style="background-color:aqua" (click)="getStreetListings()">List of Streets</button>
     <br><br>
-    Street Names: {{this.mappedData | json}}
+    Street Names: {{this.newConcatArray | json}}
   </div>
   <ng-template #noUsers>
     <p class="alert alert-danger text-center">{{errorMessage}}</p>
