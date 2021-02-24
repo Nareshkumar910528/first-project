@@ -16,6 +16,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { AngularFormsMediumComponent } from './components/angular-forms-medium/angular-forms-medium.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { AutocompleteComponent } from './components/angular-materials/autocomplete/autocomplete.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AngularFormsMediumComponent } from './components/angular-forms-medium/a
     RxjsProjComponent,
     AngularFormsComponent,
     AngularFormsMediumComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -38,7 +42,9 @@ import { AngularFormsMediumComponent } from './components/angular-forms-medium/a
     ReactiveFormsModule,
     MatCardModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+<div>
+  <h4>Filter autocomplete</h4>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Number</mat-label>
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <br>
+    <mat-slide-toggle
+      [checked]="myControl.disabled"
+      (change)="myControl.disabled ? myControl.enable() : myControl.disable()">
+      Disable Selection
+    </mat-slide-toggle>
+  </form>
+</div>

@@ -21,3 +21,18 @@ ul.button{
   background-color: black;
   color: gold;
 }
+
+.angular-material{
+  color: blue;
+  background: gold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.angular-material-navigation{
+  display: flex;
+  background: mediumpurple;
+  font-weight: bold;
+  padding: 1rem;
+  justify-content: space-between;
+}

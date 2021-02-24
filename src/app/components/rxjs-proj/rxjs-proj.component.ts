@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable, of, timer, throwError, BehaviorSubject } from 'rxjs';
 import {map, catchError, tap, filter,} from 'rxjs/operators';
 import { IndividualDataService } from 'src/app/services/individual-data.service';
@@ -41,7 +41,7 @@ export class RxjsProjComponent implements OnInit {
   noOfData: any;
   completionStatus: any;
   public spreadArray: any[];
-  public newConcatArray: any;
+  @Input() public newConcatArray: any;
   constructor(private individualDataService: IndividualDataService, private http: HttpClient) {
     //adds a constructor that will execute the observable by subscribing to the above observer object
     fruitsObservable.subscribe(fruitObserver);
