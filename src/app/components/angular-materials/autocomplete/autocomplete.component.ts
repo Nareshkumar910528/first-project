@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {IndividualDataService} from '../../../services/individual-data.service';
@@ -14,11 +14,13 @@ export class AutocompleteComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   filteredOptions: Observable<string[]>
+  @Input() fromNewConcatArray: string[] = []//child component property for @Input() decorator
 
   constructor(private individualDataService: IndividualDataService) { }
 
   ngOnInit(): void {
     this.getUsername();
+    console.log('fromNewConcatArray: ', this.fromNewConcatArray)
     //this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
     // setTimeout(() => {
     //   this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
@@ -39,6 +41,6 @@ export class AutocompleteComponent implements OnInit {
 
   _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this._username.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this.fromNewConcatArray.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 }

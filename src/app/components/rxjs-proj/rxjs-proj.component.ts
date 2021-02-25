@@ -41,7 +41,7 @@ export class RxjsProjComponent implements OnInit {
   noOfData: any;
   completionStatus: any;
   public spreadArray: any[];
-  @Input() public newConcatArray: any;
+  public newConcatArray: string[] = []; //parent component property for @Input() decorator
   constructor(private individualDataService: IndividualDataService, private http: HttpClient) {
     //adds a constructor that will execute the observable by subscribing to the above observer object
     fruitsObservable.subscribe(fruitObserver);
@@ -55,8 +55,12 @@ export class RxjsProjComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserData();
-    this.getStreetListings();
+    if (sessionStorage.getItem('tenantCode') === 'naresh-master-tnt') {
+      this.getUserData();
+      this.getStreetListings();
+    } else {
+      window.alert('TENANT CODE IS EMPTY');
+    }
   }
 
   getUserData() {
