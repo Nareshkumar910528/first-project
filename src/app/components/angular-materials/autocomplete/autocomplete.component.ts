@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {IndividualDataService} from '../../../services/individual-data.service';
@@ -10,11 +10,12 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./autocomplete.component.css']
 })
 export class AutocompleteComponent implements OnInit {
-  _username: string[] = [];
+  _username: string[] = []
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   filteredOptions: Observable<string[]>
-  @Input() fromNewConcatArray: string[] = []//child component property for @Input() decorator
+  @Input() fromNewConcatArray: string[] = [] //child component property for @Input() decorator
+  @Output() username2 = new EventEmitter<string>()
 
   constructor(private individualDataService: IndividualDataService) { }
 
@@ -42,5 +43,10 @@ export class AutocompleteComponent implements OnInit {
   _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.fromNewConcatArray.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  sendDataToRxJSComponent(data: string) {
+    this.username2.emit(data);
+    console.log('username2: ', this.username2);
   }
 }

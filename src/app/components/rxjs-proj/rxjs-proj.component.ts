@@ -42,6 +42,9 @@ export class RxjsProjComponent implements OnInit {
   completionStatus: any;
   public spreadArray: any[];
   public newConcatArray: string[] = []; //parent component property for @Input() decorator
+  fromUsername: any;
+  sortedMappedData: any;
+
   constructor(private individualDataService: IndividualDataService, private http: HttpClient) {
     //adds a constructor that will execute the observable by subscribing to the above observer object
     fruitsObservable.subscribe(fruitObserver);
@@ -55,12 +58,13 @@ export class RxjsProjComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('tenantCode') === 'naresh-master-tnt') {
       this.getUserData();
       this.getStreetListings();
-    } else {
-      window.alert('TENANT CODE IS EMPTY');
-    }
+  }
+
+  getDataFromAutocomplete(data: string) {
+    this.fromUsername = data;
+    console.log('fromUsername: ', this.fromUsername);
   }
 
   getUserData() {
@@ -75,7 +79,7 @@ export class RxjsProjComponent implements OnInit {
       } else {
         this.noOfData = respond.length;
       }
-      console.log('_student: ', this.userInfo);
+      console.log('userInfo: ', this.userInfo);
     }, (err: { message: any; }) => { //error
       console.log('error: ', err);
       this.errorMessage = err.message;
@@ -106,7 +110,7 @@ export class RxjsProjComponent implements OnInit {
       console.log('splicedMappedData: ', this.mappedData);
       console.log('indexedOfMappedData: ', this.mappedData.indexOf("Ellsworth Summit")); //searches an array for an element value and returns its position
       this.joinedStingOfMappedData = this.mappedData.join(' == '); //convert an array to a string
-      console.log('joinedStingOfMappedData: ', this.joinedStingOfMappedData); //specify the separator
+      console.log('joinedStringOfMappedData: ', this.joinedStingOfMappedData); //specify the separator
       console.log('toStringOfMappedData: ', this.mappedData.toString()); //convert an array to a string
       let newArray = ['Kuala Lumpur', 'Selangor', 'Singapore'];
       this.concatNewArrayWithMappedData = this.mappedData.concat(newArray); //merge arrays together. It returns a new array by concatenating existing arrays
@@ -132,12 +136,12 @@ export class RxjsProjComponent implements OnInit {
       });
       const filteredMappedData = this.concatNewArrayWithMappedData.filter(streetName => streetName !== 'Kattie Turnpike'); //filters the array, based on the function passed to it
       console.log('filteredMappedData: ', filteredMappedData);
-      const sortedMappedData = filteredMappedData.sort((a,b) => a.localeCompare(b)); //sorts the items of an array
-      console.log('sortedMappedData: ', sortedMappedData);
+      this.sortedMappedData = filteredMappedData.sort((a,b) => a.localeCompare(b)); //sorts the items of an array
+      console.log('sortedMappedData: ', this.sortedMappedData);
       const newArray2: Array<any> = ["Malaysia", "Sri Lanka", "United States of America"];
-      this.spreadArray = [...newArray2, sortedMappedData];
+      this.spreadArray = [...newArray2, this.sortedMappedData];
       console.log('spreadArray: ', this.spreadArray);
-      this.newConcatArray = sortedMappedData.concat(newArray2).sort((a,b) => a.localeCompare(b));
+      this.newConcatArray = this.sortedMappedData.concat(newArray2).sort((a,b) => a.localeCompare(b));
       console.log('newConcatArray: ',this.newConcatArray);
     })
   }
