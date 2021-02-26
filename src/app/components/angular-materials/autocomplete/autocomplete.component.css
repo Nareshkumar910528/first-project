@@ -15,3 +15,8 @@ h4{
 button{
   background-color: darkgoldenrod;
 }
+
+.btn-color{
+  background-color: blue;
+  color: white
+}

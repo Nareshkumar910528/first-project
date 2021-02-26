@@ -18,5 +18,12 @@
 </div>
 <br>
 <div>
-  <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent('Hello from Autocomplete component')">Send data to RxJS Component</button>
+  <label>Add a string: <input #newItem></label><br>
+  <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button>
+</div>
+<br>
+<div>
+  <button mat-raised-button class="btn-color" (click)="showInputOutputDecoratorsDiagram()">Click to view @Input() and @Output decorators diagram</button>
+  <br><br>
+  <img [src]="decoratorDiagramImage" style="width:50%;">
 </div>

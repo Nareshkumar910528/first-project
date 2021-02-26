@@ -14,14 +14,16 @@ export class AutocompleteComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   filteredOptions: Observable<string[]>
+  //stringTransfer: string;
   @Input() fromNewConcatArray: string[] = [] //child component property for @Input() decorator
   @Output() username2 = new EventEmitter<string>()
+  decoratorDiagramImage: any;
 
   constructor(private individualDataService: IndividualDataService) { }
 
   ngOnInit(): void {
     this.getUsername();
-    console.log('fromNewConcatArray: ', this.fromNewConcatArray)
+    console.log('fromNewConcatArray: ', this.fromNewConcatArray);
     //this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
     // setTimeout(() => {
     //   this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
@@ -45,8 +47,15 @@ export class AutocompleteComponent implements OnInit {
     return this.fromNewConcatArray.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  sendDataToRxJSComponent(data: string) {
-    this.username2.emit(data);
+  sendDataToRxJSComponent(_string: string) {
+    //this.stringTransfer = "Hello from Autocomplete Component...!!!";
+    this.username2.emit(_string);
     console.log('username2: ', this.username2);
   }
+
+  showInputOutputDecoratorsDiagram() {
+    this.decoratorDiagramImage = "/assets/Decorator_Diagram.png";
+    console.log('Image is shown');
+  }
+
 }

@@ -62,9 +62,12 @@ export class RxjsProjComponent implements OnInit {
       this.getStreetListings();
   }
 
-  getDataFromAutocomplete(data: string) {
-    this.fromUsername = data;
+  getDataFromAutocomplete(_string: string) {
+    this.fromUsername = _string;
     console.log('fromUsername: ', this.fromUsername);
+    this.newConcatArray.push(this.fromUsername);
+    this.newConcatArray.sort((a,b) => a.localeCompare(b));
+    console.log('newConcatArray: ', this.newConcatArray);
   }
 
   getUserData() {
