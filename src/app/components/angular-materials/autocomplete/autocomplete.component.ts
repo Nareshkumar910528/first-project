@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {IndividualDataService} from '../../../services/individual-data.service';
 import {map, startWith} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-autocomplete',
@@ -19,7 +20,7 @@ export class AutocompleteComponent implements OnInit {
   @Output() username2 = new EventEmitter<string>()
   decoratorDiagramImage: any;
 
-  constructor(private individualDataService: IndividualDataService) { }
+  constructor(private individualDataService: IndividualDataService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getUsername();

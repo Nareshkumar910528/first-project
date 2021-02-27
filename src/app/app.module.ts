@@ -19,6 +19,8 @@ import { AngularFormsMediumComponent } from './components/angular-forms-medium/a
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AutocompleteComponent } from './components/angular-materials/autocomplete/autocomplete.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AuthGuardComponent } from './services/auth/auth-guard/auth-guard.component';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AngularFormsComponent,
     AngularFormsMediumComponent,
     AutocompleteComponent,
+    AuthGuardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -44,9 +47,14 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatIconModule,
     MatRadioModule,
     MatAutocompleteModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass :'toast-top-center',
+      preventDuplicates: true,
+    })
   ],
-  providers: [],
+  providers: [AuthGuardComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
