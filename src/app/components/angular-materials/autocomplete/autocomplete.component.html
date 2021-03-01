@@ -18,8 +18,13 @@
 </div>
 <br>
 <div>
-  <label>Add a string: <input #newItem></label><br>
-  <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button>
+  <label>Add a string: <input #newItem (keyup.enter)="sendDataToRxJSComponent(newItem.value)"></label><br>
+  <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button><br><br>
+  Encrypted Value: {{this.encryptedValue}}
+  <br>
+  Decrypted Value: {{this.decryptedValue}}
+  <br>
+  {{this._username | json}}
 </div>
 <br>
 <div>

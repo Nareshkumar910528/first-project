@@ -21,6 +21,7 @@ import { AutocompleteComponent } from './components/angular-materials/autocomple
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AuthGuardComponent } from './services/auth/auth-guard/auth-guard.component';
 import {ToastrModule} from 'ngx-toastr';
+import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {ToastrModule} from 'ngx-toastr';
       preventDuplicates: true,
     })
   ],
-  providers: [AuthGuardComponent],
+  providers: [AuthGuardComponent, EncrDecrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
