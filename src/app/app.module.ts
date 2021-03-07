@@ -22,6 +22,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AuthGuardComponent } from './services/auth/auth-guard/auth-guard.component';
 import {ToastrModule} from 'ngx-toastr';
 import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
+import { PromiseVsObservableComponent } from './components/promise-vs-observable/promise-vs-observable.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
     AngularFormsMediumComponent,
     AutocompleteComponent,
     AuthGuardComponent,
+    PromiseVsObservableComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

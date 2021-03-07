@@ -58,7 +58,7 @@ export class AutocompleteComponent implements OnInit {
 
   _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.fromNewConcatArray.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this._username.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
   sendDataToRxJSComponent(_string: string) {
