@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { defer, of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { defer, of, Subscription, timer } from 'rxjs';
 import { Observable } from 'rxjs';
 import { delay, switchMap } from 'rxjs/operators';
 
@@ -8,20 +8,26 @@ import { delay, switchMap } from 'rxjs/operators';
   templateUrl: './promise-vs-observable.component.html',
   styleUrls: ['./promise-vs-observable.component.css']
 })
-export class PromiseVsObservableComponent implements OnInit {
+export class PromiseVsObservableComponent implements OnInit, OnDestroy {
+
+  everySecond: Observable<number> = timer(0,1000);
+  everySecond2: Observable<number> = timer(1000,2000);
+  everySecond3: Observable<number> = timer(2000,3000);
+  timerSubscription: Subscription = new Subscription();
 
   constructor() { }
 
-  ngOnInit(): void {
-    let number: any;
-    for(number = 1; number <= 10; number++) {
-      let number2 = of(number).pipe(switchMap((x: number) => of(x * 5)));
-      number2.subscribe((next) => {
-        console.log('resultOfSwitchedMap: ', next);
-      }, (error) => {
-        console.log('error: ', error);
-      });
-    }
+  ngOnInit(): void { 
+    this.timerSubscription.add(this.everySecond.subscribe(second => console.log(second)));
+    this.timerSubscription.add(this.everySecond2.subscribe(second => console.log(second)));
+    this.timerSubscription.add(this.everySecond3.subscribe(second => console.log(second)));
+  }
+
+  ngOnDestroy() {}
+
+  unsubscribeTimer() {
+    this.timerSubscription.unsubscribe();
+    console.log('Timer has been unsubscribed');
   }
 
   handlePromise() {
@@ -73,6 +79,18 @@ export class PromiseVsObservableComponent implements OnInit {
     const query = of('politics', 'sports', 'economy');
     const news = query.pipe(switchMap(newsProducer)); // emitting values only from the most recently projected Observable
     news.subscribe(console.log);
+  }
+
+  handleSwitchMap2() {
+    let number: any;
+    for (number = 1; number <= 10; number++) {
+      let number2 = of(number).pipe(switchMap((x: number) => of(x * 5)));
+      number2.subscribe((next) => {
+        console.log('resultOfSwitchedMap: ', next);
+      }, (error) => {
+        console.log('error: ', error);
+      });
+    }
   }
 
   handleTemplateLiteral() {
