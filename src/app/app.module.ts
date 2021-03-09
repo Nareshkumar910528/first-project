@@ -23,6 +23,10 @@ import { AuthGuardComponent } from './services/auth/auth-guard/auth-guard.compon
 import {ToastrModule} from 'ngx-toastr';
 import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
 import { PromiseVsObservableComponent } from './components/promise-vs-observable/promise-vs-observable.component';
+import { QrCodeGeneratorComponent } from './components/qr-code/qr-code-generator/qr-code-generator.component';
+import { QrCodeReaderComponent } from './components/qr-code/qr-code-reader/qr-code-reader.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+// import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,8 @@ import { PromiseVsObservableComponent } from './components/promise-vs-observable
     AutocompleteComponent,
     AuthGuardComponent,
     PromiseVsObservableComponent,
+    QrCodeGeneratorComponent,
+    QrCodeReaderComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -51,6 +57,7 @@ import { PromiseVsObservableComponent } from './components/promise-vs-observable
     MatRadioModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
+    NgxQRCodeModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass :'toast-top-center',

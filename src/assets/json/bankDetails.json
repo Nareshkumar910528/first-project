@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "option": "Maybank2u",
+        "link": "https://www.maybank2u.com.my/home/m2u/common/login.do"
+    },
+    {
+        "id": 2,
+        "option": "Standard Chartered",
+        "link": "https://www.sc.com/my/"
+    },
+    {
+        "id": 3,
+        "option": "Citibank",
+        "link": "https://www.citibank.com.my/index.htm"
+    },
+    {
+        "id": 4,
+        "option": "Public Bank",
+        "link": "https://www.pbebank.com/"
+    },
+
+    {
+        "id": 5,
+        "option": "Cimbclicks",
+        "link": "https://www.cimbclicks.com.my/"
+    }
+]

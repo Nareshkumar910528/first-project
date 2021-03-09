@@ -1,0 +1,29 @@
+<div>
+    <h4>QR Code Generator</h4>
+</div>
+<br>
+<!-- <div>
+    <ngx-qrcode 
+        [elementType]="elementType" 
+        [errorCorrectionLevel]="correctionLevel" 
+        [value]="value" 
+        cssClass="bshadow">
+    </ngx-qrcode>
+    <textarea [(ngModel)] = "value"></textarea>
+</div> -->
+
+<div style="margin-top: -25px"> 
+    <mat-form-field appearance="fill">
+        <mat-label>Banking List</mat-label>
+        <mat-select [(ngModel)]="selected">
+            <mat-option 
+                *ngFor="let _details of details" 
+                [value]="_details.link">
+                {{_details.option}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div>
+    <textarea readonly>{{selected}}</textarea>
+    <ngx-qrcode qrc-element-type="url" [value]="selected"></ngx-qrcode>
+</div>

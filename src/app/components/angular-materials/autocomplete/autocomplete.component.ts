@@ -40,6 +40,7 @@ export class AutocompleteComponent implements OnInit {
   getUsername() {
     this.individualDataService.getUserInfo().subscribe((respond: any[]) => {
       this._username = respond.map(userName => userName.username).sort((a, b) => a.localeCompare(b));
+      console.log('respond: ', respond)
       console.log('_username1: ', this._username);
     }, (err: any)=> {
       console.log('error: ', err);
