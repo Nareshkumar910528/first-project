@@ -1,30 +1,50 @@
 <div>
     <h4>QR Code Generator</h4>
-</div>
-<br>
-<div class="sidenav" >
-    <mat-form-field appearance="fill">
-        <mat-label>Banking List</mat-label>
-        <mat-select [(ngModel)]="selected">
-            <mat-option *ngFor="let _details of details" [value]="_details.link">{{_details.option}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
-<div class="container">
-    <textarea readonly>{{selected}}</textarea>
+    <p class="text-center"><strong>Banking Links</strong></p>
+    <div class="sidenav">
+        <mat-form-field appearance="fill">
+            <mat-label>Banking List</mat-label>
+            <mat-select [(ngModel)]="selected">
+                <mat-option *ngFor="let _details of details" [value]="_details.link">{{_details.option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="container">
+        <textarea readonly>{{selected}}</textarea>
+        <br>
+        <qrcode 
+            [qrdata]="selected" 
+            [width]="150" 
+            [errorCorrectionLevel]="'H'" 
+            [colorDark]="'#185CF2'"
+            [cssClass]="'qrcode'" 
+            [elementType]="'url'" 
+            [margin]="3" 
+            [scale]="4">
+        </qrcode>
+    </div>
     <br>
-    <qrcode 
-        [qrdata]="selected" 
-        [width]="150" 
-        [errorCorrectionLevel]="'H'" 
-        [colorDark]="'#185CF2'" 
-        [cssClass]="'qrcode'"
-        [elementType]="'url'" 
-        [margin]="3" 
-        [scale]="4">
-    </qrcode>
-</div>
-<br>
-<div class="text-center">
-    <button mat-raised-button class="fixed-button" (click)="downloadQRCode()">Download QRCode</button>
+    <div class="text-center">
+        <button mat-raised-button class="fixed-button" (click)="downloadQRCode()">Download QRCode</button>
+    </div>
+    <br>
+    <br>
+    <p class="text-center"><strong>Personal Details</strong></p>
+    <div class="container">
+        <qrcode 
+            [qrdata]="_personalData" 
+            [width]="150" 
+            [errorCorrectionLevel]="'H'" 
+            [colorDark]="'#F27B18'"
+            [cssClass]="'qrcode'" 
+            [elementType]="'url'" 
+            [margin]="3" 
+            [scale]="4">
+        </qrcode>
+    </div>
+    <br>
+    <div class="text-center">
+        <button mat-raised-button class="fixed-button" (click)="downloadQRCode()">Download QRCode</button>
+    </div>
+    <br>
 </div>

@@ -2,6 +2,10 @@ h4 {
     background-color: royalblue
 }
 
+p {
+  background-color: salmon;
+}
+
 ngx-qrcode {
   display: flex;
   align-items: center;

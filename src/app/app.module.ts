@@ -30,6 +30,7 @@ import { QrCodeReaderComponent } from './components/qr-code/qr-code-reader/qr-co
 //import { NgxQRCodeModule } from 'ngx-qrcode2';
 //import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QRCodeModule } from 'angularx-qrcode';
+// import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   declarations: [

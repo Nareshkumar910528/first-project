@@ -23,6 +23,7 @@ export class QrCodeGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     this.bankingDetails();
+    this.personalData();
   }
 
   bankingDetails() {
@@ -30,6 +31,16 @@ export class QrCodeGeneratorComponent implements OnInit {
     console.log('bankDetails: ', this.details);
     this.selected = this.bankDetails[0].link;
     console.log('currently selected bank: ', this.selected);
+  }
+
+  personalData() {
+    const data = [{
+      'firstName': 'Naresh',
+      'lastName': 'Kumar',
+      'linkedInProfileURL' : 'https://www.linkedin.com/in/nareshkumar-sundransegrin-a83b76a5/'
+    }];
+    this._personalData = JSON.stringify(data);
+    console.log('_personalData: ', this._personalData);
   }
 
   downloadQRCode() {
