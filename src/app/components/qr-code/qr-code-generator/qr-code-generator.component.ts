@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { timestamp } from 'rxjs/operators';
 import * as BankDetails from 'src/assets/json/bankDetails.json'
 
 @Component({
@@ -16,15 +17,16 @@ export class QrCodeGeneratorComponent implements OnInit {
   link: any;
   selectedValue: any
   bankDetails: any = BankDetails.default;
+  _personalData: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.bankingDetails();
   }
 
   bankingDetails() {
-    this.details = this.bankDetails.sort((a,b) => a.option.localeCompare(b.option));
+    this.details = this.bankDetails.sort((a: any, b: any) => a.option.localeCompare(b.option));
     console.log('bankDetails: ', this.details);
     this.selected = this.bankDetails[0].link;
     console.log('currently selected bank: ', this.selected);

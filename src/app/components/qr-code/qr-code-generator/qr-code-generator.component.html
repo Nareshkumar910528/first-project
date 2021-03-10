@@ -12,18 +12,26 @@
     <textarea [(ngModel)] = "value"></textarea>
 </div> -->
 
-<div style="margin-top: -25px"> 
+<div style="margin-top: -25px">
     <mat-form-field appearance="fill">
         <mat-label>Banking List</mat-label>
         <mat-select [(ngModel)]="selected">
-            <mat-option 
-                *ngFor="let _details of details" 
-                [value]="_details.link">
-                {{_details.option}}</mat-option>
+            <mat-option *ngFor="let _details of details" [value]="_details.link">{{_details.option}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>
 <div>
     <textarea readonly>{{selected}}</textarea>
-    <ngx-qrcode qrc-element-type="url" [value]="selected"></ngx-qrcode>
+    <br>
+    <qrcode 
+        [qrdata]="selected" 
+        [width]="150" 
+        [errorCorrectionLevel]="'M'" 
+        [colorDark]="'#185CF2'" 
+        [cssClass]="'qrcode'"
+        [elementType]="'url'" 
+        [margin]="3" 
+        [scale]="4">
+    </qrcode>
+    <!-- <ngx-qrcode qrc-element-type="url" [value]="selected" [width]="150"></ngx-qrcode> -->
 </div>

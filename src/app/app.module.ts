@@ -25,8 +25,11 @@ import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
 import { PromiseVsObservableComponent } from './components/promise-vs-observable/promise-vs-observable.component';
 import { QrCodeGeneratorComponent } from './components/qr-code/qr-code-generator/qr-code-generator.component';
 import { QrCodeReaderComponent } from './components/qr-code/qr-code-reader/qr-code-reader.component';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
-// import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
+//QR Code Modules
+//import { NgxQRCodeModule } from 'ngx-qrcode2';
+//import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     MatRadioModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
-    NgxQRCodeModule,
+    //NgxQRCodeModule,
+    QRCodeModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass :'toast-top-center',
