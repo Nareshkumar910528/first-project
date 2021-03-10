@@ -32,4 +32,20 @@ export class QrCodeGeneratorComponent implements OnInit {
     console.log('currently selected bank: ', this.selected);
   }
 
+  downloadQRCode() {
+    const fileNameToDownload = 'QR Code';
+    const base64Img = document.getElementsByClassName('qrcode')[0].children[0]['src'];
+    fetch (base64Img).then(res => res.blob()).then((blob) => {
+      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(blob,fileNameToDownload);
+      } else {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileNameToDownload;
+        link.click();
+      }
+    })
+  }
+
 }

@@ -24,3 +24,9 @@ qrcode {
   justify-content: center;
   filter: drop-shadow(5px 5px 5px #222222);
 }
+
+.fixed-button {
+  background-color: green;
+  color: white;
+}
+

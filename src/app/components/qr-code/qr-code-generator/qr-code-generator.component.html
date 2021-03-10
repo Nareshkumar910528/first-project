@@ -2,17 +2,7 @@
     <h4>QR Code Generator</h4>
 </div>
 <br>
-<!-- <div>
-    <ngx-qrcode 
-        [elementType]="elementType" 
-        [errorCorrectionLevel]="correctionLevel" 
-        [value]="value" 
-        cssClass="bshadow">
-    </ngx-qrcode>
-    <textarea [(ngModel)] = "value"></textarea>
-</div> -->
-
-<div style="margin-top: -25px">
+<div class="sidenav" >
     <mat-form-field appearance="fill">
         <mat-label>Banking List</mat-label>
         <mat-select [(ngModel)]="selected">
@@ -20,18 +10,21 @@
         </mat-select>
     </mat-form-field>
 </div>
-<div>
+<div class="container">
     <textarea readonly>{{selected}}</textarea>
     <br>
     <qrcode 
         [qrdata]="selected" 
         [width]="150" 
-        [errorCorrectionLevel]="'M'" 
+        [errorCorrectionLevel]="'H'" 
         [colorDark]="'#185CF2'" 
         [cssClass]="'qrcode'"
         [elementType]="'url'" 
         [margin]="3" 
         [scale]="4">
     </qrcode>
-    <!-- <ngx-qrcode qrc-element-type="url" [value]="selected" [width]="150"></ngx-qrcode> -->
+</div>
+<br>
+<div class="text-center">
+    <button mat-raised-button class="fixed-button" (click)="downloadQRCode()">Download QRCode</button>
 </div>
