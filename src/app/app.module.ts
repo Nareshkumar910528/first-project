@@ -24,13 +24,19 @@ import {ToastrModule} from 'ngx-toastr';
 import {EncrDecrService} from 'src/app/services/encr-decr/encr-decr.service';
 import { PromiseVsObservableComponent } from './components/promise-vs-observable/promise-vs-observable.component';
 import { QrCodeGeneratorComponent } from './components/qr-code/qr-code-generator/qr-code-generator.component';
-import { QrCodeReaderComponent } from './components/qr-code/qr-code-reader/qr-code-reader.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
-//QR Code Modules
+//QR CODE MODULES
 //import { NgxQRCodeModule } from 'ngx-qrcode2';
 //import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QRCodeModule } from 'angularx-qrcode';
 // import { QRCodeModule } from 'angular2-qrcode';
+
+//SIDEBAR MODULES
+//import { SidebarModule } from 'ng-sidebar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,6 @@ import { QRCodeModule } from 'angularx-qrcode';
     AuthGuardComponent,
     PromiseVsObservableComponent,
     QrCodeGeneratorComponent,
-    QrCodeReaderComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
@@ -63,6 +68,10 @@ import { QRCodeModule } from 'angularx-qrcode';
     MatSlideToggleModule,
     //NgxQRCodeModule,
     QRCodeModule,
+    SidebarModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass :'toast-top-center',

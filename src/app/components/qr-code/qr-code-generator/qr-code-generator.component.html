@@ -1,8 +1,12 @@
 <div>
-    <h4>QR Code Generator</h4>
-    <p class="text-center"><strong>Banking Links</strong></p>
-    <div class="sidenav">
-        <mat-form-field appearance="fill">
+    <mat-card class="card">QR Code</mat-card>
+    <br>
+    <mat-toolbar class="toolbar">
+        <span>Banking Links QR Code</span>
+      </mat-toolbar>
+      <br>
+    <div>
+        <mat-form-field appearance="fill" class="selection">
             <mat-label>Banking List</mat-label>
             <mat-select [(ngModel)]="selected">
                 <mat-option *ngFor="let _details of details" [value]="_details.link">{{_details.option}}</mat-option>
@@ -10,7 +14,7 @@
         </mat-form-field>
     </div>
     <div class="container">
-        <textarea readonly>{{selected}}</textarea>
+        <textarea readonly class="textarea">{{selected}}</textarea>
         <br>
         <qrcode 
             [qrdata]="selected" 
@@ -28,8 +32,10 @@
         <button mat-raised-button class="fixed-button" (click)="downloadQRCode()">Download QRCode</button>
     </div>
     <br>
-    <br>
-    <p class="text-center"><strong>Personal Details</strong></p>
+    <mat-toolbar class="toolbar">
+        <span>Personal LinkedIn QR Code</span>
+      </mat-toolbar>
+      <br>
     <div class="container">
         <qrcode 
             [qrdata]="_personalData" 

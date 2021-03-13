@@ -1,16 +1,25 @@
-h4 {
-    background-color: royalblue
+.toolbar {
+  background-image: linear-gradient(to right, #e1dd72, #a8c66c, #1b6535);
+  height: 40px;
+  font-family: cursive;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-p {
-  background-color: salmon;
-}
-
-ngx-qrcode {
-  display: flex;
-  align-items: center;
+.card {
+  background-image: linear-gradient(to right, black, gold);
+  color: white;
+  height: 50px;
   justify-content: center;
-  filter: drop-shadow(5px 5px 5px #222222);
+  text-align: center;
+  font-style: italic;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.selection {
+  background-image: linear-gradient(to right, #D198C5FF, #E0C568FF);
 }
 
 textarea {
@@ -20,6 +29,7 @@ textarea {
   margin-right: auto;
   width: 600px;
   height: 30px;
+  background-image: linear-gradient(to right, #D198C5FF, #E0C568FF);
 }
 
 qrcode {

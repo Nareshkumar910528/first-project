@@ -1,38 +1,87 @@
-h3{
-  color: blue;
-  background: rgb(255, 145, 0);
-  text-align: center;
-  text-decoration: underline;
+.background {
+  cursor: pointer;
+  margin-left: -10px;
 }
 
-ul.navigation {
-  display: flex;
-  background: rgb(0, 122, 128);
+.flex-container {
+  background-color: red;
+  font-family: "Lato", sans-serif;
   font-weight: bold;
-  padding: 1rem;
-  justify-content: space-between;
+  color: white;
+  height: 50px;
+  cursor: pointer;
 }
 
-ul.button{
-  background-color: black;
+body {
+  font-family: "Lato", sans-serif;
 }
 
-.fixed-button {
-  background-color: black;
-  color: gold;
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(grey, grey);
+  overflow-x: hidden;
+  padding-top: 20px;
+  justify-content: center;
 }
 
-.angular-material{
-  color: blue;
-  background: gold;
-  text-align: center;
-  text-decoration: underline;
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #818181;
+  display: block;
+  justify-content: center;
 }
 
-.angular-material-navigation{
-  display: flex;
-  background: mediumpurple;
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  font-size: 12px; /* Increased text to enable scrolling */
+  background-image: linear-gradient(to right,#ADEFD1FF, #00203FFF);
+}
+
+.header {
+  margin-left: 250px;
+  height: 50px;
+  background-image: linear-gradient(to right, rgba(255,0,0,1), rgb(0, 26, 255));
+  color: white;
   font-weight: bold;
-  padding: 1rem;
-  justify-content: space-between;
+  font-size: 30px;
+  font-style: italic;
+  font-family: cursive;
+}
+
+.header img.wording {
+  width: 100px;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.header p.opening {
+  text-align: center;
+  margin-top: -30px;
+}
+
+.footer {
+  height: 50px;
+  margin-left: 250px;
+  background-image: linear-gradient(to right, black, black);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  font-style: italic;
+  font-family: cursive;
+}
+
+.footer p.opening {
+  text-align: center;
 }

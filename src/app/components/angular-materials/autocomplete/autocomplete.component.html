@@ -1,8 +1,9 @@
 <div>
-  <h4>Filter autocomplete</h4>
+  <mat-card class="card">Autocomplete</mat-card>
+  <br>
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <mat-label>Number</mat-label>
+      <mat-label>Person</mat-label>
       <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
@@ -18,7 +19,7 @@
 </div>
 <br>
 <div>
-  <label>Add a string: <input #newItem (keyup.enter)="sendDataToRxJSComponent(newItem.value)"></label><br>
+  <label style="font-weight: bold;">Add a string: <input class="input" #newItem (keyup.enter)="sendDataToRxJSComponent(newItem.value)"></label><br>
   <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button><br><br>
   Encrypted Value: {{this.encryptedValue}}
   <br>

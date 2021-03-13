@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'angular-forms', component: AngularFormsComponent},
   { path: 'angular-forms-medium', component: AngularFormsMediumComponent},
   { path: 'angular-materials/autocomplete', component: AutocompleteComponent},
-  { path: 'qr-code/qr-code-generator', component: QrCodeGeneratorComponent}
+  { path: 'qr-code/qr-code-generator', component: QrCodeGeneratorComponent},
+  { path: '',   redirectTo: 'qr-code/qr-code-generator', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,20 @@
+.form {
+    background-image: linear-gradient(to right, #00B1D2FF, #FDDB27FF);
+    width: 50%;
+    text-align: center;
+    margin-top: -40px;
+    align-self: center;
+    margin-left: 25%;
+}
+
+.card {
+    background-image: linear-gradient(to right, black, gold);
+    color: white;
+    height: 50px;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 20px;
+  }

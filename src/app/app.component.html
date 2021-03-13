@@ -1,26 +1,24 @@
-<div style="margin-left: 25px; width: 98%">
-  <h3><b>Naresh Angular Project</b></h3>
+<div class="header">
+  <img class="wording" [src]="angularWording">
+  <p class="opening">Welcome to Angular</p>
 </div>
 
-<div style="margin-left: 25px; width: 98%">
-  <ul class="navigation">
-    <button mat-raised-button class="fixed-button" [routerLink]="['/rxjs-proj']"><strong>RXJS PROJECT</strong></button>
-    <button mat-raised-button class="fixed-button" [routerLink]="['/promise-vs-observable']"><strong>PROMISE VS OBSERVABLE</strong></button>
-    <button mat-raised-button class="fixed-button" [routerLink]="['/angular-forms']"><strong>ANGULAR FORMS</strong></button>
-    <button mat-raised-button class="fixed-button" [routerLink]="['/angular-forms-medium']"><strong>ANGULAR FORMS MEDIUM</strong></button>
-    <button mat-raised-button class="fixed-button" [routerLink]="['/qr-code/qr-code-generator']"><strong>QR CODE GENERATOR</strong></button>
-    <button mat-raised-button class="fixed-button" [routerLink]="['/angular-materials/autocomplete']"><strong>AUTOCOMPLETE</strong></button>
-  </ul>
+<div class="sidenav">
+  <img [src]="angularLogo" style="width: auto; height: 150px; margin-top: -20px;" class="background" (click)="onNavigateToAngularDocument()"><br><br>
+  <mat-card class="flex-container" fxLayout="row" fxLayout.xs="column" [routerLink]="['/rxjs-proj']"><strong><mat-icon>assistant</mat-icon>&nbsp;RxJS Project</strong></mat-card><br>
+  <mat-card class="flex-container" fxLayout="row" [routerLink]="['/promise-vs-observable']"><strong><mat-icon>assistant</mat-icon>&nbsp;Promise vs. Observable</strong></mat-card><br>
+  <mat-card class="flex-container" fxLayout="row" [routerLink]="['/angular-forms-medium']"><strong><mat-icon>assistant</mat-icon>&nbsp;Angular Forms Medium</strong></mat-card><br>
+  <mat-card class="flex-container" fxLayout="row" [routerLink]="['/qr-code/qr-code-generator']"><strong><mat-icon>assistant</mat-icon>&nbsp;QR Code Generator</strong></mat-card><br>
+  <mat-card class="flex-container" fxLayout="row" [routerLink]="['/angular-materials/autocomplete']"><strong><mat-icon>assistant</mat-icon>&nbsp;Autocomplete</strong></mat-card><br>
 </div>
 
-<!-- <div style="margin-left: 25px; width: 98%">
-  <h3 class="angular-material"><b>Angular Material</b></h3>
-  <ul class="angular-material-navigation">
-    <button mat-raised-button class="fixed-button" [routerLink]="['/angular-materials/autocomplete']"><strong>AUTOCOMPLETE</strong></button>
-  </ul>
-</div> -->
-
-<div style="margin-left: 25px; width: 98%">
+<div class="main">
+  <br>
   <router-outlet></router-outlet>
+  <br>
 </div>
 
+<div class="footer">
+  <p class="opening">Need a help? Contact resh2079@gmail.com or +601126755519</p>
+  <p class="opening">Thank you. Have a nice day.</p>
+</div>

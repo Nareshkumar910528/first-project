@@ -9,7 +9,10 @@ import { delay, switchMap } from 'rxjs/operators';
   styleUrls: ['./promise-vs-observable.component.css']
 })
 export class PromiseVsObservableComponent implements OnInit, OnDestroy {
-
+  timerUnsubsribeStatus: any;
+  _everySecond: any;
+  _everySecond2: any;
+  _everySecond3: any;
   everySecond: Observable<number> = timer(0,1000);
   everySecond2: Observable<number> = timer(1000,2000);
   everySecond3: Observable<number> = timer(2000,3000);
@@ -17,17 +20,29 @@ export class PromiseVsObservableComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit(): void { 
-    this.timerSubscription.add(this.everySecond.subscribe(second => console.log(second)));
-    this.timerSubscription.add(this.everySecond2.subscribe(second => console.log(second)));
-    this.timerSubscription.add(this.everySecond3.subscribe(second => console.log(second)));
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy() {}
+
+  startTimer() {
+    this.timerSubscription.add(this.everySecond.subscribe((second1) => {
+      this._everySecond = second1;
+      console.log(second1);
+    }));
+    this.timerSubscription.add(this.everySecond2.subscribe((second2) => {
+      this._everySecond2 = second2;
+      console.log(second2)
+    }));
+    this.timerSubscription.add(this.everySecond3.subscribe((second3) => {
+      this._everySecond3 = second3;
+      console.log(second3)
+    }));
+  }
 
   unsubscribeTimer() {
     this.timerSubscription.unsubscribe();
     console.log('Timer has been unsubscribed');
+    this.timerUnsubsribeStatus = 'Timer has been unsubscribed.';
   }
 
   handlePromise() {
@@ -38,8 +53,10 @@ export class PromiseVsObservableComponent implements OnInit, OnDestroy {
     });
     console.log("Before calling the then method");
     welcomePromise.then(console.log);
-    if (`\`` === '`') {
+    if (`\`` !== '`') {
       console.log('backtick is true');
+    } else {
+      console.log('check backtick comparison logic');
     }
   }
 
