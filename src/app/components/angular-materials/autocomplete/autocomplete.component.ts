@@ -28,7 +28,7 @@ export class AutocompleteComponent implements OnInit {
   constructor(private individualDataService: IndividualDataService, private toastrService: ToastrService, private EncrDecr: EncrDecrService) { }
 
   ngOnInit(): void {
-    this.getUsername();
+    setTimeout(() => {this.getUsername()}, 2000);
     console.log('fromNewConcatArray: ', this.fromNewConcatArray);
     //this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
     // setTimeout(() => {
@@ -42,10 +42,11 @@ export class AutocompleteComponent implements OnInit {
       this._username = respond.map(userName => userName.username).sort((a, b) => a.localeCompare(b));
       console.log('respond: ', respond)
       console.log('_username1: ', this._username);
+      this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
     }, (err: any)=> {
       console.log('error: ', err);
     }, () => {
-      this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
+      //this.filteredOptions = this.myControl.valueChanges.pipe(startWith(''), map(value => this._filter(value)));
       console.log('API request is completed.')
     });
   }

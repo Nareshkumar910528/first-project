@@ -6,9 +6,13 @@
       <mat-label>Person</mat-label>
       <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
+        <mat-option *ngFor="let option of filteredOptions | async; else loading" [value]="option">{{option}}</mat-option>
       </mat-autocomplete>
     </mat-form-field>
+    <a class="successStatus" *ngIf="filteredOptions | async; else loading">User info is loaded successfully...!!!</a>     
+    <ng-template #loading>
+       <a class="pendingStatus">Loading user info...</a>
+    </ng-template>
     <br>
     <mat-slide-toggle
       [checked]="myControl.disabled"
@@ -25,7 +29,13 @@
   <br>
   Decrypted Value: {{this.decryptedValue}}
   <br>
-  {{this._username | json}}
+  <!-- {{this._username | json}} -->
+  <div class="successStatus" *ngIf="filteredOptions | async; else loading">
+    User Info : {{this._username | json}}
+  </div>     
+  <ng-template #loading>
+     <a>Loading user info...</a>
+  </ng-template>
 </div>
 <br>
 <div>

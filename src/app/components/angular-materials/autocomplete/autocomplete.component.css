@@ -36,3 +36,18 @@ button{
   background-color: blue;
   color: white
 }
+
+.successStatus {
+  color: darkblue;
+  font-weight: bold;
+}
+
+a.successStatus {
+  color: green;
+  font-weight: bold;
+}
+
+a.pendingStatus {
+  color: red;
+  font-weight: bold;
+}
