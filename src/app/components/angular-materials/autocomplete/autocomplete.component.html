@@ -24,7 +24,7 @@
 <br>
 <div>
   <label style="font-weight: bold;">Add a string: <input class="input" #newItem (keyup.enter)="sendDataToRxJSComponent(newItem.value)"></label><br>
-  <button mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button><br><br>
+  <button appMaterialElevation mat-raised-button class="fixed-button" (click)="sendDataToRxJSComponent(newItem.value)">Send data to RxJS Component</button><br><br>
   Encrypted Value: {{this.encryptedValue}}
   <br>
   Decrypted Value: {{this.decryptedValue}}
@@ -39,7 +39,7 @@
 </div>
 <br>
 <div>
-  <button mat-raised-button class="btn-color" (click)="showInputOutputDecoratorsDiagram()">Click to view @Input() and @Output decorators diagram</button>
+  <button appMaterialElevation mat-raised-button class="btn-color" (click)="showInputOutputDecoratorsDiagram()">Click to view @Input() and @Output decorators diagram</button>
   <br><br>
   <img [src]="decoratorDiagramImage" style="width:50%;">
 </div>

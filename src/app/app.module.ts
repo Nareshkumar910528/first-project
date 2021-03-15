@@ -37,6 +37,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MaterialElevationDirective } from './directives/material-elevation.directive';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     AuthGuardComponent,
     PromiseVsObservableComponent,
     QrCodeGeneratorComponent,
+    MaterialElevationDirective,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
