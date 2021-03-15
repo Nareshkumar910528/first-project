@@ -1,10 +1,14 @@
 <div class="header">
-  <img class="wording" [src]="angularWording">
+  <img class="wording" [src]="angularWording" (click)="onNavigateToAngularDocument()">
   <p class="opening">Welcome to Angular</p>
 </div>
 
 <div class="sidenav">
-  <img [src]="angularLogo" style="width: auto; height: 150px; margin-top: -20px;" class="background" (click)="onNavigateToAngularDocument()"><br><br>
+  <div class="imageHover">
+      <img [src]="angularMaterialLogo" style="width: auto; height: 150px; margin-top: -20px;" class="background" (click)="onNavigateToAngularMaterialDocument()">
+      <div>Click the image to navigate to Angular Material page</div>
+  </div>
+  <br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" fxLayout.xs="column" [routerLink]="['/rxjs-proj']"><strong><mat-icon>assistant</mat-icon>&nbsp;User Data</strong></mat-card><br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" fxLayout.xs="column" [routerLink]="['/rxjs-proj']"><strong><mat-icon>assistant</mat-icon>&nbsp;RxJS Project</strong></mat-card><br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" [routerLink]="['/promise-vs-observable']"><strong><mat-icon>assistant</mat-icon>&nbsp;Promise vs. Observable</strong></mat-card><br>

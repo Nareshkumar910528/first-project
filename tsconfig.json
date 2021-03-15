@@ -17,6 +17,8 @@
   "compilerOptions": 
   {  
     "resolveJsonModule": true, 
-    "esModuleInterop": true 
+    "esModuleInterop": true ,
+    "experimentalDecorators": true,
+    "allowJs": true
   } 
 }

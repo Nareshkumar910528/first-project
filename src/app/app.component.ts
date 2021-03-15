@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   }
   angularLogo: any;
   angularWording: any;
+  angularMaterialLogo: any;
 
   constructor(private connectionService: ConnectionService, private router: Router) {
     this.checkInternetConnectionAvailability();
@@ -25,7 +26,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //this.callAngularBackground();
     this.angularLogo = "/assets/Angular_background.png";
-    this.angularWording = "/assets/Angular_wording.png"
+    this.angularWording = "/assets/Angular_wording.png";
+    this.angularMaterialLogo = "/assets/Angular_Material_logo.png"
   }
 
   _toggleSidebar() {
@@ -48,6 +50,12 @@ export class AppComponent implements OnInit {
   onNavigateToAngularDocument() {
     console.log('navigate');
     const url = "https://angular.io/";
+    window.open(url, '_blank');
+  }
+
+  onNavigateToAngularMaterialDocument() {
+    console.log('navigate');
+    const url = "https://material.angular.io/";
     window.open(url, '_blank');
   }
 
