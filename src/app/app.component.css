@@ -4,16 +4,21 @@
 }
 
 .flex-container {
-  background-color: red;
+  background-image: linear-gradient(to right, rgba(255,0,0,1), rgb(0, 26, 255));
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  color: white;
+  color: black;
   height: 50px;
   cursor: pointer;
   border-style: solid;
   border-width: thin;
   border-color: black;
   margin-bottom: -15px;
+}
+
+.mat-card:hover {
+  background-image: linear-gradient(to right, black, gold);
+  color: white
 }
 
 body {

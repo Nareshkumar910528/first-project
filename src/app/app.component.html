@@ -5,6 +5,7 @@
 
 <div class="sidenav">
   <img [src]="angularLogo" style="width: auto; height: 150px; margin-top: -20px;" class="background" (click)="onNavigateToAngularDocument()"><br><br>
+  <mat-card appMaterialElevation class="flex-container" fxLayout="row" fxLayout.xs="column" [routerLink]="['/rxjs-proj']"><strong><mat-icon>assistant</mat-icon>&nbsp;User Data</strong></mat-card><br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" fxLayout.xs="column" [routerLink]="['/rxjs-proj']"><strong><mat-icon>assistant</mat-icon>&nbsp;RxJS Project</strong></mat-card><br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" [routerLink]="['/promise-vs-observable']"><strong><mat-icon>assistant</mat-icon>&nbsp;Promise vs. Observable</strong></mat-card><br>
   <mat-card appMaterialElevation class="flex-container" fxLayout="row" [routerLink]="['/angular-forms-medium']"><strong><mat-icon>assistant</mat-icon>&nbsp;Angular Forms Medium</strong></mat-card><br>
