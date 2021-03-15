@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable, of, timer, throwError, BehaviorSubject } from 'rxjs';
 import {map, catchError, tap, filter,} from 'rxjs/operators';
-import { IndividualDataService } from 'src/app/services/individual-data.service';
+import { IndividualDataService } from 'src/app/services/user-data/individual-data.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {error} from '@angular/compiler/src/util';
 import {isNewline} from 'codelyzer/angular/styles/cssLexer';

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {IndividualDataService} from '../../../services/individual-data.service';
+import {IndividualDataService} from '../../../services/user-data/individual-data.service';
 import {map, startWith} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 import { ConnectionServiceModule } from 'ng-connection-service';
